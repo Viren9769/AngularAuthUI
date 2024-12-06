@@ -11,6 +11,7 @@
 
 }
 
+
 #forget{
     min-width: 100px;
     margin-left: auto;
@@ -98,6 +99,35 @@ height: 600px;
 
 
 
+
+/* Styles for the navigation list */
+.nav {
+    background-color: transparent; /* Optional: Can adjust background if needed */
+  }
+  
+  .nav-item {
+    list-style: none;
+  }
+  
+  /* Styling for the anchor link */
+  .nav-link {
+    color: black; /* Sets the text color to black */
+    font-weight: bold; /* Optional: Makes the text bold */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effects */
+  }
+  
+  /* Hover effect for the anchor link */
+  .nav-link:hover {
+    color: darkgray; /* Changes color on hover for better user experience */
+    text-decoration: underline; /* Optional: Adds underline on hover */
+  }
+  
+  /* Optional styling for the div wrapping the link */
+  .viren {
+    padding: 5px; /* Adds spacing inside the div */
+  }
+  
 
 
 
