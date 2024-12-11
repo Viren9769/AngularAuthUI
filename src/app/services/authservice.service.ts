@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { UserDto } from '../Interface/User.Dto';
 import { loginDTO } from '../Interface/Login.Dto';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class AuthserviceService {
   private baseURL: string = "http://localhost:5237/api/User/";
+  isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(private http: HttpClient, private route: Router ) { }
 
   login(userobj: UserDto) {
@@ -26,9 +29,14 @@ export class AuthserviceService {
   //  localStorage.removeItem('token');
   }
 
+  updateToken(status: boolean) {
+    this.isAuthenticated.next(status);
+  }
+
   // set a token for auth guard 
   storeToken(token_value: string){
-    localStorage.setItem('token', 'token_value');
+    this.isAuthenticated.next(true);
+    localStorage.setItem('token', token_value);
   }
   // get token from local storage
   getToken(){
