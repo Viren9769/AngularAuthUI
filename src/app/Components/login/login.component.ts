@@ -47,6 +47,7 @@ hideShowPass() {
           this.loginForm.reset();
           // alert(res.message);
           this.toast.success("Success");  // use ng-toast for success messages  // you can also use alert for success messages  // navigate to dashboard page after successful login  // use Angular router
+          this.auth.storeToken(res.token);  // store token in local storage  // navigate to dashboard page after successful login  // use Angular router
           this.route.navigate(['/dashboard']);
        },
         error:(err)=> {
