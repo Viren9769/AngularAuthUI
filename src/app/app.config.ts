@@ -7,6 +7,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideToastr } from 'ngx-toastr';
 import {  provideAnimations } from '@angular/platform-browser/animations';
 import { tokenInterceptor } from './Components/Interceptor/token.interceptor';
+//import { refreshInterceptor } from './Components/Interceptor/refresh.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [

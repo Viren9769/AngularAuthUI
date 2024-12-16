@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import Validateform from '../../helpers/validateforms';
 import { AuthserviceService } from '../../services/authservice.service';
 import { ToastrService } from 'ngx-toastr';
+import { UserStoreService } from '../../services/user-store.service';
 
 
 
@@ -24,7 +25,8 @@ loginForm!: FormGroup;
   constructor(private fb: FormBuilder,
      private auth: AuthserviceService,
       private route: Router,
-    private toast: ToastrService) { }
+    private toast: ToastrService,
+  private userstore: UserStoreService) { }
   ngOnInit(): void{
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -47,7 +49,11 @@ hideShowPass() {
           this.loginForm.reset();
           // alert(res.message);
           this.toast.success("Success");  // use ng-toast for success messages  // you can also use alert for success messages  // navigate to dashboard page after successful login  // use Angular router
-          this.auth.storeToken(res.token);  // store token in local storage  // navigate to dashboard page after successful login  // use Angular router
+          this.auth.storeToken(res.accessToken); 
+         this.auth.storeRefreshToken(res.refreshToken);
+          const token_payload = this.auth.decodeToken(); // store token in local storage  // navigate to dashboard page after successful login  // use Angular router
+          this.userstore.setFullName(token_payload.name); // Update full name in the UserStoreService
+          this.userstore.setRole(token_payload.role);
           this.route.navigate(['/dashboard']);
        },
         error:(err)=> {

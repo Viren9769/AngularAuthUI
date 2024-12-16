@@ -1,7 +1,24 @@
-<h1>Humari Duniya me aap ka swagat hai </h1>
-
-<ul *ngFor="let user of users">
-  <li>{{ user.firstName }} {{ user.lastName }} - {{ user.userName }} - {{ user.email }}</li>
-</ul>
-
-<button (click)="logout()" type="button" class="btn btn-danger">Log-out</button>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+     <div>
+      <h4> Hello {{ fullName }} </h4>
+     </div>
+    </div>
+  </div>
+</nav>
